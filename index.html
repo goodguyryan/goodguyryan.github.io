@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Website</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+<!-- header -->    
+<div id="header">
+    <div class="container">
+        <nav>
+            <img src="" class="logo">
+            <ul>
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-text">
+            <p id = "typer"></p>
+            <h1>Hi I am <span>Ryan</span> <br>Ng Jingkai</h1>
+        </div>
+    </div>
+</div>
+
+<!-- About -->
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="images/myphoto.JPG">
+            </div>
+            <div class="about-col-2">
+                <h1 class="subtitle">About Me</h1>
+                <p>Hi I am Ryan Ng, currently a Year 1 student studying Computer Engineering at
+                    NUS. I enjoy both hardware and software development, especially in combining
+                    the two through embedded systems. I have experience working on such systems from my
+                    years of coding experience.<br><br>I am excited to help take you or your organisation to 
+                    greater heights!
+                </p>
+
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('experience')">Experience</p>
+                    <p class="tab-links" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('education')">Education</p>
+                </div>
+                <div class="tab-contents active-tab" id="experience">
+                    <ul>
+                        <li><span>IRAS (Clerical Officer)</span><br>Dec 2023 - May 2024</li>
+                        <p>
+                            - Assisted department on onboarding companies to integrate with IRAS tax APIs.
+                            <br>- Lowered administrative time by 20% by creating a database of over 500 companies
+                            to keep check on the onboarding status of companies.
+                            <br>- Routinely conducted sandbox testing on IRAS IRIN system that is used by hundreds 
+                            of IRAS employees
+                        </p>
+                        <li><span>Republic of Singapore Navy (Marine Engineer)</span><br>Jan 2022 - Nov 2023</li>
+                        <p>
+                            - Held position of Leading Technician from Jun 2023 - Nov 2023
+                            <br>- Lead team of 20+ sailors on sailing missions and exercises
+                            <br>- Upkept the maintenance of engines and auxiliary systems of ~10 crafts during
+                            tenure
+                            <br>- Regularly coordinated maintenance jobs with external contractors
+                        </p>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="skills">
+                    <ul>
+                        <li><span>Progamming Languages</span><br>C, C++, Python</li>
+                        <li><span>Work flow</span><br>VSCode, Git, Github</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span>BEng (Computer Engineering)</span><br>NUS (2024-Current)</li>
+                        <li><span>A-Levels</span><br>St Andrew's Junior College (2020-2021)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>   
+
+<!-- Portfolio -->
+ <div id="portfolio">
+    <div class="container">
+        <h1 class="sub-title">Portfolio</h1>
+        <div class="work-list">
+            <div class="work">
+                <img src="images/Laundry.jpg">
+                <div class="layer">
+                    <h3>Laundry Bot</h3>
+                    <p>A python telegram bot used by ~150 residents to track their laundry!</p>
+                    <a href="#"></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="images/computer.jpg">
+                <div class="layer">
+                    <h3>8-bit Computer</h3>
+                    <p>A functional 8-bit computer that is build by scratch out of breadboards and simple electronics!</p>
+                    <a href="#"></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="images/code.jpg">
+                <div class="layer">
+                    <h3>This Website!</h3>
+                    <p>This website is an ongoing project to showcase my work as I pursue my degree!</p>
+                    <a href="#"></a>
+                </div>
+            </div>
+        </div>
+        <a href="https://www.github.com/goodguyryan" class="btn">See more of my Work</a>
+    </div>
+ </div>
+
+ <!--Contact-->
+ <div id="contact"> 
+    <div class="container">
+        <div class="contact-info">
+            <h1>Contact Me!</h1>
+            <p>If you want to reach out to me, click the logos below!</p>
+            <div class="logos">
+                <a href="https://www.linkedin.com/in/ryan-ng-7337b932a/">
+                    <img src="images/linkedinlogo.png" alt="">
+                </a>
+                <a href="https://www.github.com/goodguyryan">
+                    <img src="images/githublogo.png" alt="">
+                </a>
+                <a href="">
+                    <img src="images/emaillogo.png" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+ </div>
+
+<script>
+    var i = 0;
+    var txt = 'Aspiring Engineer';
+    var speed = 50;
+
+    function typeWriter() {
+        if (i < txt.length) {
+        document.getElementById("typer").innerHTML += txt.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+        }
+    }
+
+    window.onload = function(){
+        typeWriter();
+    };
+</script>
+<script>
+
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+
+</script>
+</body>
+</html>
